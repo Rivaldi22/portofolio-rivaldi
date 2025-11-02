@@ -81,4 +81,31 @@ document.addEventListener('DOMContentLoaded', () => {
       showImage(index);
     }, 5000);
   });
+
+  // ======================
+  // Foto Profil Modal Popup
+  // ======================
+  const modal = document.getElementById('imgModal');
+  const profileImg = document.getElementById('profileImg');
+  const modalImg = document.getElementById('imgFull');
+  const captionText = document.getElementById('caption');
+  const closeBtn = document.querySelector('.close');
+
+  if (profileImg && modal && modalImg && closeBtn) {
+    profileImg.style.cursor = 'zoom-in';
+    profileImg.addEventListener('click', () => {
+      modal.style.display = 'block';
+      modalImg.src = profileImg.src;
+      captionText.textContent = "Rivaldi Hidayatullah — Web Developer & IT Support";
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Tutup modal jika klik di luar gambar
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+  }
 });
